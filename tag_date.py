@@ -54,6 +54,8 @@ def parse_YYYYMMDD(filepath):
     return date
 
 def date_exif(fullpath):
+    if os.path.getsize(fullpath) > 25_000_000:
+        return None
     try:
         with open(fullpath, 'rb') as image_file:
             my_image = Image(image_file)
