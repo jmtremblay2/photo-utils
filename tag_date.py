@@ -83,6 +83,6 @@ if __name__ == "__main__":
             else:
                 print(f"can't parse date for {file}")
 
-            if not DRY_RUN:
+            if not DRY_RUN and date:
                 unix_ts = to_unix(date)
                 os.utime(fullpath, (unix_ts, unix_ts))
