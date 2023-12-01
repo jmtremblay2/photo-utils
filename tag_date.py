@@ -54,13 +54,16 @@ def parse_YYYYMMDD(filepath):
     return date
 
 def date_exif(fullpath):
-    with open(fullpath, 'rb') as image_file:
-        my_image = Image(image_file)
-    if my_image.has_exif and hasattr(my_image, "datetime"):
-        date_raw = my_image.datetime
-        date = parse_YYYYMMDDHHMMSS(date_raw)
-        return date
-    return None
+    try:
+        with open(fullpath, 'rb') as image_file:
+            my_image = Image(image_file)
+        if my_image.has_exif and hasattr(my_image, "datetime"):
+            date_raw = my_image.datetime
+            date = parse_YYYYMMDDHHMMSS(date_raw)
+            return date
+        return None
+    except Exception as e:
+        return None
 
 def find_date(fullpath):
     date = date_exif(fullpath)\
