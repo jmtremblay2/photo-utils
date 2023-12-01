@@ -113,10 +113,10 @@ def move_files_to_trash(to_move):
         return
     
     for file in to_move:
-        new_path = TO_DELETE_PATH + os.path.dirname(file)
-        new_file = os.path.join(new_path, os.path.basename(file))
-        os.makedirs(new_path, exist_ok=True)
-        os.rename(file, new_file)
+        # new_path = TO_DELETE_PATH + os.path.dirname(file)
+        # new_file = os.path.join(new_path, os.path.basename(file))
+        # os.makedirs(new_path, exist_ok=True)
+        os.remove(file)
 
 def file_date(f):
     return os.stat(f).st_ctime
