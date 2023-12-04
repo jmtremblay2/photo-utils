@@ -6,10 +6,7 @@ from colorama import init as colorama_init
 from colorama import Fore
 from colorama import Style  
 
-TO_DELETE_PATH=os.environ.get("TO_DELETE_PATH")
 DRY_RUN="DRY_RUN" in os.environ
-
-assert DRY_RUN or os.path.isdir(TO_DELETE_PATH)
 
 def jm_walk(root):
     # complete list of files
